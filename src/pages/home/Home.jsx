@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Header } from "../login/Login.style";
+import Header from "../../components/header/Header";
 
 const Home = () => {
-  const APP_ID = "7e6a6c65";
-  const APP_KEY = "90c58a4680f9f2b586938756169dc24e";
+  const APP_ID = "4e9f05eb";
+  const APP_KEY = "9b904d703fa0d46a88ce1ac63f29f498";
   const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState("breakfast");
   const [recipes, setRecipes] = useState([]);
@@ -13,14 +13,15 @@ const Home = () => {
 
   const getData = async () => {
     const { data } = await axios(url);
-    console.log(data);
+
     setRecipes(data.hits);
   };
-
   console.log(recipes);
+
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <div>
       <Header setQuery={setQuery} />
