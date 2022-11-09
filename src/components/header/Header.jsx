@@ -10,10 +10,15 @@ import {
 } from "./Header.style";
 
 const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getData();
+  };
+
   return (
     <HeaderContainer>
       <MainHeader>Recipe App</MainHeader>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <FoodInput
           type="text"
           placeholder="Search"
